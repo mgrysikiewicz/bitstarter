@@ -82,13 +82,11 @@ if(require.main == module) {
         .parse(process.argv);
     
     if (program.url) {
-	console.log("found the url: "+ program.url);
 	rest.get(program.url).on('complete', function(response){
 	    processHtmlFile(response,program.checks)
 	});
     }
     else {
-	console.log("using the file: " + program.file);
 	var openHtmlFile = readHtmlFile(program.file);
 	processHtmlFile(openHtmlFile, program.checks);
     }
